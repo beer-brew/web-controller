@@ -1,0 +1,23 @@
+default: &default
+  reconnect: true
+  adapter: mysql2
+  pool: 16
+development:
+  <<: *default
+  host: 127.0.0.1
+  username: root
+  password:
+  database: beer_brewer_development
+test:
+  <<: *default
+  host: 127.0.0.1
+  username: root
+  password: "<%= ENV['APP_DB_PASSWORD'] %>"
+  database: beer_brewer_test
+
+production:
+  <<: *default
+  host: 127.0.0.1
+  username: root
+  password:
+  database: beer_brewer

@@ -1,0 +1,11 @@
+<div id="heater">
+  <% if heater %>
+    <label>status</label>
+    <% if heater.status %>
+      <div>On</div>
+    <% else %>
+      <div>Off</div>
+    <% end %>
+    <button id="switch"></button>
+  <% end %>
+</div>
