@@ -9,8 +9,6 @@ class HeaterChannel < ApplicationCable::Channel
   end
 
   def switch
-    ActiveRecord::Base.connection_pool.with_connection do
-      Heater.create status: !Heater.last.status
-    end
+    Heater.create status: !Heater.last.status
   end
 end

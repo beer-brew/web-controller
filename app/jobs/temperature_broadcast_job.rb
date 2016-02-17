@@ -2,7 +2,6 @@ class TemperatureBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(temp)
-    p 'perform job'
     ActionCable.server.broadcast 'temperature_channel', temperature: render_temp(temp)
   end
 
