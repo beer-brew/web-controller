@@ -5,8 +5,6 @@ gem 'rails', github: "rails/rails"
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma'
-gem 'delayed_job'
-gem 'delayed_job_active_record'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
