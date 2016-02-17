@@ -11,6 +11,6 @@ App.heater = App.cable.subscriptions.create "HeaterChannel",
   switch: ->
     @perform 'switch'
 
-$(document).on 'click', '#switch', (event) ->
+$(document).on 'click touchstart', '#switch', (event) ->
   App.heater.switch()
   event.preventDefault()
