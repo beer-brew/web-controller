@@ -1,11 +1,10 @@
 <div id="heater">
   <% if heater %>
-    <label>status</label>
+    <label>Heater status</label>
     <% if heater.status %>
-      <div>On</div>
+      <i id="switch" class="fa fa-toggle-off fa-5x"></i>
     <% else %>
-      <div>Off</div>
+      <i id="switch" class="fa fa-toggle-on fa-5x"></i>
     <% end %>
-    <button id="switch"></button>
   <% end %>
 </div>
