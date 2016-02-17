@@ -1,7 +1,7 @@
 module StatusHelper
   def color(t)
-    red = [0,[(t/0.390625).to_i,256].min].max
-    blue = [0,[(256-red).to_i,256].min].max
+    red = [0,[(t/0.390625).to_i,255].min].max
+    blue = [0,[(255-red).to_i,255].min].max
     "\##{red.to_s(16)}00#{blue.to_s(16)}"
   end
 
