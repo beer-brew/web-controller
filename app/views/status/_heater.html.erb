@@ -1,10 +1,20 @@
-<div id="heater">
-  <% if heater %>
-    <label>Heater status</label>
+<div id="heater" class='card energy'>
+  <div class='inner'>
     <% if heater.status %>
-      <i id="switch" class="fa fa-toggle-off fa-5x"></i>
+      <div class='icon on'></div>
     <% else %>
-      <i id="switch" class="fa fa-toggle-on fa-5x"></i>
+      <div class='icon off'></div>
     <% end %>
-  <% end %>
+    <div class='title'>
+      <div class='text'>HEATER</div>
+    </div>
+    <div class='number'>
+      <% if heater.status %>
+        <i id="switch" class="fa fa-toggle-on fa-1g"></i>
+      <% else %>
+        <i id="switch" class="fa fa-toggle-off fa-1g"></i>
+      <% end %>
+    </div>
+    <div class='measure'>STATUS</div>
+  </div>
 </div>

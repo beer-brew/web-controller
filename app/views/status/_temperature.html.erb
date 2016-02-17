@@ -1,8 +1,13 @@
-<div id="temperature">
-  <% if temperature %>
-    <label>temperature</label>
-    <div><%= temperature.temperature %></div>
-    <label>sensor id</label>
-    <div><%= temperature.sensor_id %></div>
-  <% end %>
+<div id="temperature" class='card temp'>
+  <div class='inner'>
+    <div class='icon' style="background:<%=color(temperature.temperature)%>" data-background=<%=color(temperature.temperature)%>></div>
+    <div class="temp-cover" style="background:<%=color(temperature.temperature)%>; height: <%=temp_height(temperature.temperature)%>"></div>
+    <div class='title'>
+      <div class='text'>TEMPERATURE</div>
+    </div>
+    <div class='number'>
+      <%= temperature.temperature.round(2) if temperature %>
+    </div>
+    <div class='measure'>CELCIUS</div>
+  </div>
 </div>
