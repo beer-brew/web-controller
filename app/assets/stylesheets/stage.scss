@@ -1,9 +1,42 @@
-table {
-  border-collapse: collapse;
-  th, td {
-    border: 1px solid black;
+.stage-container {
+  margin: 30px auto;
+  table {
+    width: 70%;
+    margin: 0 auto;
+    border-collapse: collapse;
+
+    th, td {
+      border: 1px solid black;
+    }
+    td {
+      text-align:center;
+      vertical-align:middle;
+    }
+    th {
+      &.stage-play {
+        width: 3%;
+      }
+      &.duration {
+        width: 7%;
+      }
+      &.sequence {
+        width: 2%;
+      }
+      &.target_temperature {
+        width: 3%;
+      }
+      &.name {
+        width: 5%;
+      }
+      &.timer {
+        width: 2%;
+      }
+    }
   }
-}
-.animated {
-  color: red;
+  .animated {
+    color: red;
+  }
+  .current {
+    font-weight: bold;
+  }
 }

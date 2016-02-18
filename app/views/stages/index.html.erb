@@ -1,25 +1,27 @@
-<table id="table">
-  <thead>
-  <tr>
-    <th>click play stage</th>
-    <th data-field="name">Name</th>
-    <th data-field="desc">Description</th>
-    <th data-field="duration">Duration</th>
-    <th data-field="target_temperature">Target Temperature</th>
-    <th data-field="sequence" data-sortable="true">Sequence in brew</th>
-    <td data-field="timer">Time left</td>
-  </tr>
-  </thead>
-  <tbody>
-  <%= render @stages %>
-  </tbody>
-</table>
-<div id="add-stage">
-  <label>add a stage</label>
-  <i class="fa fa-plus fa-1g"></i>
-</div>
+<div class="stage-container">
+  <table id="table">
+    <thead>
+    <tr>
+      <th class="stage-play" data-field="play">click play stage</th>
+      <th class="name" data-field="name">Name</th>
+      <th class="desc" data-field="desc">Description</th>
+      <th class="duration" data-field="duration">Duration</th>
+      <th class="target_temperature" data-field="target_temperature">Target Temperature</th>
+      <th class="sequence" data-field="sequence" data-sortable="true">Sequence in brew</th>
+      <td class="timer" data-field="timer">Time left</td>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @stages %>
+    </tbody>
+  </table>
+  <div id="add-stage">
+    <label>add a stage</label>
+    <i class="fa fa-plus fa-1g"></i>
+  </div>
 
-<div id="reset">
-  <label>reset all stage status</label>
-  <i class="fa fa-stop fa-1g"></i>
+  <div id="reset">
+    <label>reset all stage status</label>
+    <i class="fa fa-stop fa-1g"></i>
+  </div>
 </div>

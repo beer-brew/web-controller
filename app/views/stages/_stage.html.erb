@@ -1,9 +1,9 @@
-<tr class=<%='current' if @current_stage == stage.id%> data-id=<%=stage.id%>>
-  <td class="stage-play" data-field="play" data-id=<%=stage.id%>><i class="fa fa-play faa-horizontal <%='animated' if @current_stage == stage.id%>"></i></td>
-  <td data-field="name" contenteditable='true' data-id=<%=stage.id%> ><%= stage.name %></td>
-  <td data-field="desc" contenteditable data-id=<%=stage.id%>><%= stage.desc %></td>
-  <td data-field="duration" contenteditable data-id=<%=stage.id%>><%= stage.duration %></td>
-  <td data-field="target_temperature" contenteditable data-id=<%=stage.id%>><%= stage.target_temperature %></td>
-  <td data-field="sequence" contenteditable data-id=<%=stage.id%>><%= stage.sequence %></td>
-  <td data-field="timer" data-id=<%=stage.id%>>N/A</td>
+<tr class="<%='current' if @current_stage == stage.id%>" data-id=<%=stage.id%>>
+  <td data-field="play" class="stage-play" data-id=<%=stage.id%>><i class="fa fa-play faa-horizontal <%='animated' if @current_stage == stage.id%>"></i></td>
+  <td data-field="name" class='name' contenteditable='true' data-id=<%=stage.id%> ><%= stage.name %></td>
+  <td data-field="desc" class="data-field" contenteditable data-id=<%=stage.id%>><%= stage.desc %></td>
+  <td data-field="duration" class="duration" contenteditable data-id=<%=stage.id%>><%= stage.duration %></td>
+  <td data-field="target_temperature" class="target_temperature" contenteditable data-id=<%=stage.id%>><%= stage.target_temperature %></td>
+  <td data-field="sequence" class="sequence" contenteditable data-id=<%=stage.id%>><%= stage.sequence %></td>
+  <td data-field="timer" class="timer" data-id=<%=stage.id%>>N/A</td>
 </tr>

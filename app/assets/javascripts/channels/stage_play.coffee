@@ -10,9 +10,12 @@ App.stage_play = App.cable.subscriptions.create "StagePlayChannel",
     if $(targetElement).length==0
       $('.stage-play i').removeClass().addClass('fa fa-play faa-horizontal')
       $('td[data-field=timer]').text('N/A')
+      $('tr').removeClass('current')
+
     else
       $('.stage-play .animated').removeClass 'animated'
-      $(targetElement).find('i').addClass 'animated'
+      $('.current').removeClass('current')
+      $(targetElement).addClass('current').find('i').addClass 'animated'
       for e in $('.stage-play')
         if $(e).data('id') < data['stage']
           $(e).find('i').unbind('click touchstart').removeClass().addClass('fa fa-stop')
