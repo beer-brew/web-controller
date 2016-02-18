@@ -13,6 +13,9 @@ $(document).on 'click touchstart', '#add-stage', ->
 
 $(document).on 'click touchstart', '.stage-play', (event)->
   if $(this).find('i').hasClass('fa-play')
-    App.stage.play($(this).data('id'))
+    App.stage_play.play($(this).data('id'))
+
+$(document).on 'click touchstart', '#reset', (event)->
+    App.stage_play.reset()
 
 

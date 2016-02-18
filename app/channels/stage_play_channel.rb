@@ -7,4 +7,13 @@ class StagePlayChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
+
+  def reset
+    Ongoing.first_or_create.update(stage: 0)
+  end
+
+
+  def play_stage(stage)
+    Ongoing.first_or_create.update(stage: stage['stage'])
+  end
 end

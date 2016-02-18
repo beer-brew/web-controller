@@ -19,5 +19,3 @@ App.stage = App.cable.subscriptions.create "StageChannel",
   add: ->
     @perform 'add_stage'
 
-  play: (stage)->
-    @perform 'play_stage', stage: stage
