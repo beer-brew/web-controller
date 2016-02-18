@@ -7,3 +7,4 @@ App.timer = App.cable.subscriptions.create "TimerChannel",
 
   received: (data) ->
     $('tr.current td[data-field=timer]').text(data['timeLeft'])
+    $('#timer .number').text(data['timeLeft'])
