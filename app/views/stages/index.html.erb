@@ -1,9 +1,7 @@
 <table id="table">
-  <div id="add-stage">
-    <i class="fa fa-plus fa-1g"></i>
-  </div>
   <thead>
   <tr>
+    <th>play this stage</th>
     <th data-field="name">Name</th>
     <th data-field="desc">Description</th>
     <th data-field="duration">Duration</th>
@@ -12,6 +10,9 @@
   </tr>
   </thead>
   <tbody>
-    <%= render @stages %>
+  <%= render @stages %>
   </tbody>
 </table>
+<div id="add-stage">
+  <i class="fa fa-plus fa-1g"></i>
+</div>

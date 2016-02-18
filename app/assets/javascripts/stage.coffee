@@ -10,3 +10,9 @@ $(document).on 'click touchstart', 'td', (event)->
 
 $(document).on 'click touchstart', '#add-stage', ->
   App.stage.add()
+
+$(document).on 'click touchstart', '.stage-play', (event)->
+  if $(this).find('i').hasClass('fa-play')
+    App.stage.play($(this).data('id'))
+
+

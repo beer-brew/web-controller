@@ -15,4 +15,8 @@ class StageChannel < ApplicationCable::Channel
   def add_stage
     Stage.create
   end
+
+  def play_stage(stage)
+    Ongoing.first_or_create.update(stage: stage['stage'])
+  end
 end
