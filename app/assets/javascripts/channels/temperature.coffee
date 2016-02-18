@@ -8,8 +8,3 @@ App.temperature = App.cable.subscriptions.create "TemperatureChannel",
       $('.temp-cover').height($('.temp-cover').height()*2.4)
 
 
-$(document).ready ->
-  if(window.devicePixelRatio == 3)
-    $('.temp-cover').height($('.temp-cover').height()*2.4)
-
-

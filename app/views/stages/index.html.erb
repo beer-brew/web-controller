@@ -1,0 +1,14 @@
+<table id="#table">
+  <thead>
+  <tr>
+    <th data-field="name">Name</th>
+    <th data-field="desc">Description</th>
+    <th data-field="duration">Duration</th>
+    <th data-field="target_temperature">Target Temperature</th>
+    <th data-field="sequence" data-sortable="true">Sequence in brew</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render @stages %>
+  </tbody>
+</table>

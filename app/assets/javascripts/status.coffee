@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'click touchstart', '#switch', (event) ->
+  App.heater.switch()
+  event.preventDefault()
+
+$(document).ready ->
+  if(window.devicePixelRatio == 3)
+    $('.temp-cover').height($('.temp-cover').height()*2.4)
+
+
