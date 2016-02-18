@@ -13,6 +13,6 @@ module BeerBrewer
     # -- all .rb files in that directory are automatically loaded.
     config.mqtt_client = MQTT::Client.connect('localhost')
     # TODO to be clear
-    config.active_record.time_zone_aware_types = [:datetime]
+    config.active_record.time_zone_aware_types = [:time, :datetime]
   end
 end

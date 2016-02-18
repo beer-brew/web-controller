@@ -4,19 +4,23 @@ class TempBasedCalJob < ApplicationJob
   def perform(t)
     return unless o = Ongoing.first
     stage_control(o,t)
-    heator_control(o,t)
+    heater_control(o,t)
   end
 
   private
   def stage_control(o, t)
-    o.stage_start_time = Time.now if start_stage?(o, t)
+    if start_stage?(o, t)
+     o.stage_start_time = Time.now
+     o.save
+    end
     if next_stage?(o)
       o.stage = find_next_stage(o).id
+      o.stage_start_time = nil
       o.save
     end
   end
 
-  def heator_control(o,t)
+  def heater_control(o,t)
     if reach_target_temp?(o.stage, t.temperature) && Heater.last.status == true
       Heater.create status: false
     elsif !reach_target_temp?(o.stage, t.temperature) && Heater.last.status == false
@@ -33,7 +37,7 @@ class TempBasedCalJob < ApplicationJob
   end
 
   def next_stage?(o)
-    (o.stage_start_time + stage(o.stage).duration * 60) > Time.now
+    Time.now - o.stage_start_time > stage(o.stage).duration * 60
   end
 
   def find_next_stage(o)

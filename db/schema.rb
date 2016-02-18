@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160218143919) do
 
   create_table "ongoings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "stage"
-    t.time     "stage_start_time"
+    t.datetime "stage_start_time"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
