@@ -6,7 +6,15 @@ App.stage = App.cable.subscriptions.create "StageChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $("tr[data-id=#{data['id']}]").replaceWith(data['stage'])
+    #TODO will update whole row, make edit another field of this row diffcault
+    targetElement = $("tr[data-id=#{data['id']}]")
+    if(targetElement.length == 0)
+      $('tbody').append data['stage']
+    else
+      targetElement.replaceWith(data['stage'])
 
   update: (id, field, value)->
     @perform 'update', id: id, field: field, value: value
+
+  add: ->
+    @perform 'add_stage'

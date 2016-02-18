@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20160218085223) do
   end
 
   create_table "stages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",                             default: "stage name"
     t.text     "desc",               limit: 65535
-    t.integer  "duration"
-    t.float    "target_temperature", limit: 24
-    t.integer  "sequence"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "duration",                         default: 0
+    t.float    "target_temperature", limit: 24,    default: 0.0
+    t.integer  "sequence",                         default: 0
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
   end
 
   create_table "temperatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

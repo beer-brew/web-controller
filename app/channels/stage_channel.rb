@@ -11,4 +11,8 @@ class StageChannel < ApplicationCable::Channel
   def update(data)
     Stage.find(data['id']).update(data['field']=> data['value'])
   end
+
+  def add_stage
+    Stage.create
+  end
 end
