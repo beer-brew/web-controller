@@ -9,8 +9,9 @@ App.stage_play = App.cable.subscriptions.create "StagePlayChannel",
     targetElement = $("tr[data-id=#{data['stage']}]")
     if $(targetElement).length==0
       $('.stage-play i').removeClass().addClass('fa fa-play faa-horizontal')
+      $('td[data-field=timer]').text('N/A')
     else
-      $('.stage-play .animated').removeClass('animated')
+      $('.stage-play .animated').removeClass 'animated'
       $(targetElement).find('i').addClass 'animated'
       for e in $('.stage-play')
         if $(e).data('id') < data['stage']

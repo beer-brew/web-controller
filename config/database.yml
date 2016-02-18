@@ -1,7 +1,7 @@
 default: &default
   reconnect: true
   adapter: mysql2
-  pool: 16
+  pool: 32
 development:
   <<: *default
   host: 127.0.0.1
