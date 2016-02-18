@@ -1,4 +1,5 @@
 <div id="dashboard"  class='container'>
   <%= render partial: 'temperature', locals: {temperature: @temperature} %>
   <%= render partial: 'heater', locals: {heater: @heater} %>
+  <%= render partial: 'timer', locals: {heater: @heater} %>
 </div>

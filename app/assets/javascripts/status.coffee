@@ -6,4 +6,4 @@ $(document).ready ->
   if(window.devicePixelRatio == 3)
     $('.temp-cover').height($('.temp-cover').height()*2.4)
 
-
+  initLocalClocks()
