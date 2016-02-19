@@ -1,5 +1,6 @@
 .stage-container {
   margin: 30px auto;
+  font-size: 1.5em;
   table {
     width: 70%;
     margin: 0 auto;
@@ -11,6 +12,7 @@
     td {
       text-align:center;
       vertical-align:middle;
+      height: 60px;
     }
     th {
       &.stage-play {
@@ -38,9 +40,23 @@
   }
   .current {
     font-weight: bold;
+    font-style: italic;
+    background-color: lightgrey;
   }
 }
 
 audio {
   display: none;
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+  .stage-container {
+    table {
+      td {
+        height: 120px;
+      }
+    }
+  }
 }
