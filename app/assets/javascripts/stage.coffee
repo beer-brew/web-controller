@@ -19,3 +19,6 @@ $(document).on 'click touchstart', '#reset', (event)->
     App.stage_play.reset()
 
 
+$(document).on 'click touchstart', '.should_stop', (event)->
+  App.stage.update($(this).data('id'), $(this).data('field'), $(this).find('input').prop('checked'))
+

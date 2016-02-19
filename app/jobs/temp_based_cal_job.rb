@@ -37,7 +37,12 @@ class TempBasedCalJob < ApplicationJob
   end
 
   def next_stage?(o)
-    Time.now - o.stage_start_time > stage(o.stage).duration * 60
+    time_out = Time.now - o.stage_start_time > stage(o.stage).duration * 60
+    if time_out && stage(o.stage).should_stop
+      StageStopAlarmBroadcastJob.perform_later
+      return false
+    end
+    time_out
   end
 
   def find_next_stage(o)

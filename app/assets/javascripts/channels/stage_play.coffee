@@ -6,12 +6,12 @@ App.stage_play = App.cable.subscriptions.create "StagePlayChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
+    $('audio').remove()
     targetElement = $("tr[data-id=#{data['stage']}]")
     if $(targetElement).length==0
       $('.stage-play i').removeClass().addClass('fa fa-play faa-horizontal')
       $('td[data-field=timer]').text('N/A')
       $('tr').removeClass('current')
-
     else
       $('.stage-play .animated').removeClass 'animated'
       $('.current').removeClass('current')
