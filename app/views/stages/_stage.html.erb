@@ -6,4 +6,5 @@
   <td data-field="target_temperature" class="target_temperature" contenteditable data-id=<%=stage.id%>><%= stage.target_temperature %></td>
   <td data-field="sequence" class="sequence" contenteditable data-id=<%=stage.id%>><%= stage.sequence %></td>
   <td data-field="timer" class="timer" data-id=<%=stage.id%>>N/A</td>
+  <td data-field="should_stop" class="should_stop" ><label><input type="checkbox" <%= "checked" if stage.should_stop%> /></label></td>
 </tr>
