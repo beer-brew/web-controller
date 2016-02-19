@@ -277,7 +277,6 @@ only screen and (min-device-pixel-ratio: 2) {
       }
     }
   }
-
   .temp {
     border: 2px solid #DE3932;
     .inner {
@@ -314,7 +313,6 @@ only screen and (min-device-pixel-ratio: 2) {
       }
     }
   }
-
   .energy {
     border: 2px solid #7DAD0A;
     .inner {
@@ -355,6 +353,23 @@ only screen and (min-device-pixel-ratio: 2) {
         }
       }
 
+    }
+  }
+  .time {
+    border: 1px solid #8bd2e4;
+    .inner {
+      .icon.clock {
+        border-radius: 160px;
+        background-size: 160px;
+        height: 160px;
+        width: 160px;
+        top: -200px;
+        left: 100px;
+      }
+      .number {
+        margin: 20px auto;
+        font-size: 4em;
+      }
     }
   }
 }
