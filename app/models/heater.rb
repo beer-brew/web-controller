@@ -7,7 +7,7 @@ class Heater < ApplicationRecord
   private
   def publish_to_mqtt
     string_status = self.status ? "On" : "Off"
-    Rails.application.config.mqtt_client.publish('heater', string_status,retain=true)
+    Rails.application.config.mqtt_client.publish('/heater', string_status,retain=true)
   end
 end
 
