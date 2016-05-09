@@ -11,8 +11,7 @@ module BeerBrewer
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.mqtt_client = MQTT::Client.connect('localhost')
-    # TODO to be clear
+    config.mqtt_client = MQTT::Client.connect(host: 'm10.cloudmqtt.com', port: '12948', username: 'qegbzezg', password: 'GaD8XPkgNZMH')
     config.active_record.time_zone_aware_types = [:time, :datetime]
   end
 end
