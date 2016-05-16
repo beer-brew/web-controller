@@ -6,7 +6,7 @@ althought it's a web application, it will update the status in realtime
 
 it need:
 
-  * esp8266 wifi board with code https://github.com/ripple0328/wifi-brew running in it
+  * esp8266 wifi board with code https://github.com/ripple0328/wifi-brew running in it, please checkout commit f24fce
   * a ds18b20 digital temperature sensor connected to gpio 3
   * a relay connected to  VN, GND  and gpio 4
   * a button connected to  VCC, GND and gpio 1 
