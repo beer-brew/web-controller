@@ -1,4 +1,4 @@
-t = require("ds18b20")
+t = require("driver")
 sensor_pin = 3
 gpio.mode(3,  gpio.INPUT)
 
