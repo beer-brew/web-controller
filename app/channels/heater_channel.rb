@@ -9,6 +9,8 @@ class HeaterChannel < ApplicationCable::Channel
   end
 
   def switch
-    Heater.create status: !Heater.last.status
+    if Heater.last
+      Heater.create status: !Heater.last.status
+    end
   end
 end
