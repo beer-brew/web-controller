@@ -1,11 +1,10 @@
 class CreateDevices < ActiveRecord::Migration[5.0]
   def change
     create_table :devices do |t|
-      t.string :name
-      t.string :type
-      t.text :desc
-      t.integer :device_id
-      t.boolean :online_status
+      t.string :chip_id
+      t.string :integer
+      t.string :status
+      t.string :integer
 
       t.timestamps
     end

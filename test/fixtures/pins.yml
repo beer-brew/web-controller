@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_id: 1
+  connection_id: MyString
+  integer: MyString
+  pin_type: MyString
+  string: MyString
+
+two:
+  device_id: 1
+  connection_id: MyString
+  integer: MyString
+  pin_type: MyString
+  string: MyString
