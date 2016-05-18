@@ -28,8 +28,11 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.string   "chip_id"
     t.string   "integer"
     t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "ip"
+    t.string   "mac_address"
+    t.string   "ssid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "heaters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

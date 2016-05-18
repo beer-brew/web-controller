@@ -5,7 +5,9 @@ class CreateDevices < ActiveRecord::Migration[5.0]
       t.string :integer
       t.string :status
       t.string :integer
-
+      t.string :ip
+      t.string :mac_address
+      t.string :ssid
       t.timestamps
     end
   end
