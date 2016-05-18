@@ -1,7 +1,6 @@
 class HeardBeatJob < ApplicationJob
   def perform
     TimerBroadcastJob.perform_later
-    HeardBeatJob.perform_later(wait: 5.seconds)
+    HeardBeatJob.set(wait: 5.seconds).perform_later
   end
-
 end

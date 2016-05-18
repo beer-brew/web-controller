@@ -7,4 +7,4 @@ Thread.new do
     TemperatureUpdateJob.perform_later(JSON.parse(message))
   end
 end
-HeardBeatJob.perform_later(wait: 5.seconds)
+HeardBeatJob.set(wait: 5.seconds).perform_later
