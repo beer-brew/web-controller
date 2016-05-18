@@ -25,14 +25,13 @@ ActiveRecord::Schema.define(version: 20160518083809) do
   add_index "connections", ["pin_id"], name: "index_connections_on_pin_id", using: :btree
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "chip_id"
-    t.string   "integer"
-    t.string   "status"
+    t.integer  "chip_id",                 null: false
+    t.integer  "status",      default: 0
     t.string   "ip"
     t.string   "mac_address"
     t.string   "ssid"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "heaters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
