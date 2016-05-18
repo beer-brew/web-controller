@@ -1,7 +1,7 @@
 <div id="temperature" class='card temp'>
   <div class='inner'>
-    <div class='icon' style="background:<%=color(temperature.temperature)%>" data-background=<%=color(temperature.temperature)%>></div>
-    <div class="temp-cover" style="background:<%=color(temperature.temperature)%>; height: <%=temp_height(temperature.temperature)%>"></div>
+    <div class='icon' style="background:<%=color(temperature.temperature) if temperature%>" data-background=<%=color(temperature.temperature) if temperature %>></div>
+    <div class="temp-cover" style="background:<%=color(temperature.temperature) if temperature%>; height: <%=temp_height(temperature.temperature) if temperature%>"></div>
     <div class='title'>
       <div class='text'>TEMPERATURE</div>
     </div>
