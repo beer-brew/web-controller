@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219081144) do
+ActiveRecord::Schema.define(version: 20160518083809) do
+
+  create_table "connections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "driver"
+    t.string   "setup"
+    t.integer  "io_type"
+    t.integer  "pin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "connections", ["pin_id"], name: "index_connections_on_pin_id", using: :btree
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "type"
-    t.text     "desc",          limit: 65535
-    t.integer  "device_id"
-    t.boolean  "online_status"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "chip_id"
+    t.string   "integer"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "heaters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -35,6 +44,18 @@ ActiveRecord::Schema.define(version: 20160219081144) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  create_table "pins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "device_id"
+    t.string   "connection_id"
+    t.string   "integer"
+    t.string   "pin_type"
+    t.string   "string"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "pins", ["device_id"], name: "index_pins_on_device_id", using: :btree
 
   create_table "stages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                             default: "stage name"

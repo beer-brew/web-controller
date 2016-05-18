@@ -6,7 +6,8 @@ class CreatePins < ActiveRecord::Migration[5.0]
       t.string :integer
       t.string :pin_type
       t.string :string
-
+      
+      t.belongs_to :device, index: true
       t.timestamps
     end
   end
