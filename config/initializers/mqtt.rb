@@ -3,3 +3,4 @@ Thread.new do
     DeviceRegisterJob.perform_later(message)
   end
 end
+HeardBeatJob.perform_later(wait: 5.seconds)
