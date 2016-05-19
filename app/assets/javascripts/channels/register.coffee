@@ -3,6 +3,8 @@ App.register= App.cable.subscriptions.create "RegisterChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
   received: (payload) ->
-    targetElement = $('#devices') 
+    targetElement = $('.device-panel .devices') 
     if(targetElement.find('#'+payload['id']).length == 0)
       targetElement.append payload['body']
+  connected: (source_connection_id, target_device_id)->
+    @perform 'connected', source_connection_id: source_connection_id, target_device_id: target_device_id 

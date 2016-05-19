@@ -1,6 +1,6 @@
 <div class="device-panel">
     <h1>Devices Panel</h1>
-    <ul id="devices">
+    <ul class="devices">
         <%= render partial: 'device', collection: @devices %>
     </ul>
 </div>
@@ -18,4 +18,8 @@
             <%= render partial: 'connection', collection: @connections.where(catagory: :gpio)%>
         </ul>
     </div>
+</div>
+<div class="component">
+    <h1> Components</h1> 
+    <ul class="devices"></ul>
 </div>

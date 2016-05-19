@@ -1,13 +1,17 @@
 // Place all the styles related to the device_manage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.device-panel {
+ .component, .device-panel {
     width: 50%;
     height: 100%;
     float: left;
-        ul#devices {
+        ul.devices {
         list-style-type: none; 
         li.device {
+            &.ui-state-highlight {
+                border: 3px solid red;
+                background: #999;
+            }
             .details {
                 height: 65px;
                 display: inline-block;
