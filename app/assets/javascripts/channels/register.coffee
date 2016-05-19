@@ -3,5 +3,7 @@ App.register= App.cable.subscriptions.create "RegisterChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
   received: (payload) ->
-   console.log("device" + payload.id+ "register")
+    targetElement = $('#devices') 
+    if(targetElement.find('#'+payload['id']).length == 0)
+      targetElement.append payload['body']
 
