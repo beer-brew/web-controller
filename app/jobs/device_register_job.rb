@@ -7,8 +7,9 @@ class DeviceRegisterJob < ApplicationJob
       d.mac_address = msg['mac']
       d.ssid = msg['ssid']
       d.status = :online
+      d.pins.build(pin_number: 2)
     end
-    ActionCable.server.broadcast 'register_channel',id: msg['id'], body: render_body(d) 
+    ActionCable.server.broadcast 'register_channel', id: d.id, body: render_body(d) 
   end
   private
   def render_body(device)

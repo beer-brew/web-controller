@@ -7,7 +7,6 @@ class CreateConnections < ActiveRecord::Migration[5.0]
       t.string :icon
       t.integer :io_type
       t.integer :catagory
-      t.belongs_to :pin, index: true
       t.timestamps
     end
   end

@@ -20,10 +20,8 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.string   "icon"
     t.integer  "io_type"
     t.integer  "catagory"
-    t.integer  "pin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pin_id"], name: "index_connections_on_pin_id", using: :btree
   end
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -51,10 +49,9 @@ ActiveRecord::Schema.define(version: 20160518083809) do
 
   create_table "pins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "device_id"
-    t.string   "connection_id"
-    t.string   "integer"
-    t.string   "pin_type"
-    t.string   "string"
+    t.integer  "pin_type"
+    t.integer  "pin_number"
+    t.integer  "connection_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["device_id"], name: "index_pins_on_device_id", using: :btree
