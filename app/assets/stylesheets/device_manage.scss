@@ -8,6 +8,8 @@
     ul.devices {
         list-style-type: none; 
         li.device {
+            width: 300px;
+            margin: 30px; 
             .details {
                 height: 65px;
                 display: inline-block;
