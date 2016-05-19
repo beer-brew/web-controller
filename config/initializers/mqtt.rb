@@ -3,4 +3,4 @@ Thread.new do
     DeviceRegisterJob.perform_later(JSON.parse(message))
   end
 end
-HeardBeatJob.set(wait: 5.seconds).perform_later
+# HeardBeatJob.set(wait: 5.seconds).perform_later

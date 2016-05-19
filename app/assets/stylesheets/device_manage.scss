@@ -1,17 +1,13 @@
 // Place all the styles related to the device_manage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- .component, .device-panel {
+ .components-panel, .device-panel {
     width: 50%;
     height: 100%;
     float: left;
     ul.devices {
         list-style-type: none; 
         li.device {
-            &.ui-state-highlight {
-                border: 3px solid red;
-                background: #999;
-            }
             .details {
                 height: 65px;
                 display: inline-block;
@@ -26,6 +22,12 @@
                 height: 80px;
             }
         }
+    }
+}
+.components-panel {
+    li {
+        border: 3px solid red;
+        background: #999;
     }
 }
 .groves {

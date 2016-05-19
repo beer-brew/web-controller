@@ -19,7 +19,9 @@
         </ul>
     </div>
 </div>
-<div class="component">
+<div class="components-panel">   
     <h1> Components</h1> 
-    <ul class="devices"></ul>
+    <ul class="components devices">
+        <%= render partial: 'device', collection: @components %>
+    </ul>
 </div>
