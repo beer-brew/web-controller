@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.integer  "pin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["pin_id"], name: "index_connections_on_pin_id", using: :btree
   end
-
-  add_index "connections", ["pin_id"], name: "index_connections_on_pin_id", using: :btree
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "chip_id",                 null: false
@@ -55,9 +54,8 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.string   "string"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["device_id"], name: "index_pins_on_device_id", using: :btree
   end
-
-  add_index "pins", ["device_id"], name: "index_pins_on_device_id", using: :btree
 
   create_table "stages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                             default: "stage name"
