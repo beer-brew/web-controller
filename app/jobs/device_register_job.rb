@@ -8,6 +8,6 @@ class DeviceRegisterJob < ApplicationJob
       d.ssid = msg['ssid']
       d.status = :online
     end
-    ActionCable.server.broadcast 'register_channel', payload: msg
+    ActionCable.server.broadcast 'register_channel', payload: d 
   end
 end
