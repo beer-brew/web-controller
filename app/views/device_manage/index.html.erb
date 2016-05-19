@@ -1,4 +1,21 @@
-<h1>DeviceManage</h1>
-<ul id="devices">
-    <%= render partial: 'device', collection: @devices %>
-</ul>
+<div class="device-panel">
+    <h1>Devices Panel</h1>
+    <ul id="devices">
+        <%= render partial: 'device', collection: @devices %>
+    </ul>
+</div>
+<div class="groves">
+    <h1>Groves</h1>
+    <div class="analog">
+        <h2>Analog</h2>
+        <ul>
+            <%= render partial: 'connection', collection: @connections.where(catagory: :analog)%>
+        </ul>
+    </div>
+    <div class="gpio">
+        <h2>Gpio</h2>
+        <ul>
+            <%= render partial: 'connection', collection: @connections.where(catagory: :gpio)%>
+        </ul>
+    </div>
+</div>
