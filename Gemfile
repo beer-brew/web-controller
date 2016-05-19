@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', github: "rails/rails"
-
+gem 'rails','~>5.0.0.rc1'
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma'
