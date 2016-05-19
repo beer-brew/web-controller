@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20160518083809) do
   create_table "connections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "driver"
     t.string   "setup"
+    t.string   "name"
+    t.string   "icon"
     t.integer  "io_type"
     t.integer  "catagory"
     t.integer  "pin_id"
