@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.string   "driver"
     t.string   "setup"
     t.integer  "io_type"
+    t.integer  "catagory"
     t.integer  "pin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
