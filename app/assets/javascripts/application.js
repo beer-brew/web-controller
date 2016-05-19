@@ -13,8 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.min.js
-//= require lodash.min.js
-//= require backbone.min.js
-//= require joint.js
 //= require_tree .
