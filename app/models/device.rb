@@ -1,4 +1,4 @@
 class Device < ApplicationRecord
+  enum status: [:offline, :online]
   has_many :pins
-  enum status: [ offline: 0, online: 1 ]
 end
