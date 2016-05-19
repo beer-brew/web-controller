@@ -8,6 +8,10 @@ class DeviceRegisterJob < ApplicationJob
       d.ssid = msg['ssid']
       d.status = :online
     end
-    ActionCable.server.broadcast 'register_channel', payload: d 
+    ActionCable.server.broadcast 'register_channel',id: msg['id'], body: render_body(d) 
+  end
+  private
+  def render_body(device)
+    ApplicationController.renderer.render(partial: 'device_manage/device', locals: {device: device})
   end
 end
