@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Connection.create(name: "Temperature Sensor", catagory: :analog, io_type: :input, icon: 'temp_sensor_analog')
-Connection.create(name: "Temperature Sensor", catagory: :gpio, io_type: :input, icon: 'temp_sensor_digital')
+Connection.create(name: "Temperature Sensor", catagory: :gpio, setup: 'ds18b20', io_type: :input, icon: 'temp_sensor_digital')
 Connection.create(name: "Air Quality Sensor", catagory: :analog, io_type: :input, icon: 'air_quality')
 Connection.create(name: "Humidity Sensor", catagory: :gpio, io_type: :input, icon: 'humidity_sensor')
 Connection.create(name: "Light", catagory: :gpio, io_type: :output, icon: 'light')
