@@ -9,7 +9,7 @@ class StagesController < ApplicationController
     end
     if components
       grouped_components = components.group_by do |c|
-        Connection.find(c.pins.first.connection_id).io_type == :input
+        Connection.find(c.pins.first.connection_id).io_type == 'input'
       end
       @input_devices = grouped_components[true] 
       @output_devices = grouped_components[false] 

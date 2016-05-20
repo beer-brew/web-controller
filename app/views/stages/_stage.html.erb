@@ -6,7 +6,7 @@
   </td>
   <td data-field="output_logic" class="output_logic editable" contenteditable data-id=<%=stage.id%>><%= stage.output_logic%></td>
   <td data-field="output_device" class="device output_device" contenteditable data-id=<%=stage.id%>>
-      <%= select_tag('output_device', options_for_select(@output_devices.map { |d| [Connection.find(d.pins.first.connection_id).name, d.id]}), class: 'device-selector', id: 'output_device', include_blank: true) if @output_devices %>
+      <%= select_tag('output_device', options_for_select(@output_devices.map { |d| [Connection.find(d.pins.first.connection_id).name, d.id]}, ["Temperature Sensor", 1]), class: 'device-selector', id: 'output_device', include_blank: true) if @output_devices %>
   </td>
   <td data-field="stop_device" class="device stop_device" contenteditable data-id=<%=stage.id%>>
       <%= select_tag('stop_device', options_for_select(@input_devices.map { |d| [Connection.find(d.pins.first.connection_id).name, d.id]}), class: 'device-selector', id: 'stop_device', include_blank: true) if @input_devices %>

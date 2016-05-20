@@ -7,11 +7,13 @@ $(document).on 'click touchstart', '.editable', (event)->
 
   $(this).blur ->
     App.stage.update($(this).data('id'), $(this).data('field'), $(this).text())
-$(document).ready ->
+bind_select_device = ->
   $('select').on 'change', ->
     optionSelected = $("option:selected", this);
     App.stage.select_device($(this).parent().data('id'),$(this).attr('id'), this.value)
 
+$(document).ready ->
+  bind_select_device
 $(document).on 'click touchstart', '#add-stage', ->
   App.stage.add()
 
@@ -21,7 +23,6 @@ $(document).on 'click touchstart', '.stage-play', (event)->
 
 $(document).on 'click touchstart', '#reset', (event)->
     App.stage_play.reset()
-
 
 $(document).on 'click touchstart', '.should_stop', (event)->
   App.stage.update($(this).data('id'), $(this).data('field'), $(this).find('input').prop('checked'))

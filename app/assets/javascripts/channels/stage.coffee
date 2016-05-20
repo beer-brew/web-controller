@@ -12,7 +12,6 @@ App.stage = App.cable.subscriptions.create "StageChannel",
       $('tbody').append data['stage']
     else
       targetElement.replaceWith(data['stage'])
-
   update: (id, field, value)->
     @perform 'update', id: id, field: field, value: value
 

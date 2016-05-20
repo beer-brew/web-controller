@@ -1,6 +1,6 @@
 t = require("driver")
-sensor_pin = 2 
-gpio.mode(2,  gpio.INPUT)
+sensor_pin = $PIN 
+gpio.mode(sensor_pin,  gpio.INPUT)
 
 -- ESP-01 GPIO Mapping
 t.setup(sensor_pin)

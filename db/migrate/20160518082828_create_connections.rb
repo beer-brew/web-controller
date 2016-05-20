@@ -3,6 +3,7 @@ class CreateConnections < ActiveRecord::Migration[5.0]
     create_table :connections do |t|
       t.string :driver
       t.string :setup
+      t.string :run
       t.string :name
       t.string :icon
       t.integer :io_type
