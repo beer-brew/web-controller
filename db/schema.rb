@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "input_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float    "input_data",    limit: 24
+    t.integer  "connection_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "ongoings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "stage"
     t.datetime "stage_start_time"
@@ -69,13 +76,6 @@ ActiveRecord::Schema.define(version: 20160518083809) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.boolean  "should_stop",   default: false
-  end
-
-  create_table "temperatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "sensor_id"
-    t.float    "temperature", limit: 24
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
   end
 
 end

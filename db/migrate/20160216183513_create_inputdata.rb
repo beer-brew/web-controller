@@ -1,6 +1,6 @@
-class CreateInputData < ActiveRecord::Migration[5.0]
+class CreateInputdata < ActiveRecord::Migration[5.0]
   def change
-    create_table :temperatures do |t|
+    create_table :input_data do |t|
       t.float :input_data
       t.integer :connection_id 
       t.timestamps
