@@ -58,14 +58,16 @@ ActiveRecord::Schema.define(version: 20160518083809) do
   end
 
   create_table "stages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                             default: "stage name"
-    t.text     "desc",               limit: 65535
-    t.integer  "duration",                         default: 0
-    t.float    "target_temperature", limit: 24,    default: 0.0
-    t.integer  "sequence",                         default: 0
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
-    t.boolean  "should_stop",                      default: false
+    t.string   "name",          default: "stage name"
+    t.integer  "input_device"
+    t.string   "output_logic"
+    t.integer  "output_device"
+    t.integer  "stop_device"
+    t.string   "stop_logic"
+    t.integer  "sequence",      default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.boolean  "should_stop",   default: false
   end
 
   create_table "temperatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

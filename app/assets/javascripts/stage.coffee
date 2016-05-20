@@ -1,4 +1,4 @@
-$(document).on 'click touchstart', 'td', (event)->
+$(document).on 'click touchstart', '.editable', (event)->
   $(this).on 'keydown', (e)->
     if e.keyCode == 27 || e.keyCode == 13 # escape and enter
       e.preventDefault()
@@ -7,6 +7,10 @@ $(document).on 'click touchstart', 'td', (event)->
 
   $(this).blur ->
     App.stage.update($(this).data('id'), $(this).data('field'), $(this).text())
+$(document).ready ->
+  $('select').on 'change', ->
+    optionSelected = $("option:selected", this);
+    App.stage.select_device($(this).parent().data('id'),$(this).attr('id'), this.value)
 
 $(document).on 'click touchstart', '#add-stage', ->
   App.stage.add()

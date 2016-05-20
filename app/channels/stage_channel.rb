@@ -15,4 +15,8 @@ class StageChannel < ApplicationCable::Channel
   def add_stage
     Stage.create
   end
+
+  def select_device(payload)
+    Stage.find(payload['stage_id']).update(payload['select_type'] => payload['device_id'])
+  end
 end

@@ -18,4 +18,6 @@ App.stage = App.cable.subscriptions.create "StageChannel",
 
   add: ->
     @perform 'add_stage'
+  select_device: (stage, type, selected_device) ->
+    @perform 'select_device',stage_id: stage,select_type: type, device_id: selected_device
 
