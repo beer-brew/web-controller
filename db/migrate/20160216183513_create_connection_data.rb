@@ -4,8 +4,12 @@ class CreateConnectionData< ActiveRecord::Migration[5.0]
       t.float :value
       t.datetime :time
       t.string :name
+      t.float :lng
+      t.float :lat
       t.belongs_to :connection
+      t.integer :data_id
       t.timestamps
     end
   end
 end
+ 

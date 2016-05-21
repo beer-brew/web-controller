@@ -4,6 +4,9 @@ class DigitalTempSensor < Connection
   def setup_file 
     'ds18b20'
   end
+  def run_file
+    'ds18b20'
+  end
 
   def custom_values
     {} 

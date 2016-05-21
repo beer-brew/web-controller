@@ -19,6 +19,12 @@ class Connection < ApplicationRecord
     setup_code = replace_vars(IO.read("lib/connection/#{setup_file}_setup.lua"))
     Rails.application.config.mqtt_client.publish("/setup/#{pin.device.chip_id}", setup_code, retain=true)
   end
+
+  def run
+   run_code = replace_vars(IO.read("lib/connection/#{run_file}_run.lua"))  
+   Rails.application.config.mqtt_client.publish("/run/#{pin.device.chip_id}", run_code, retain=true) unless run_code.empty?
+  end
+
   def replace_vars(s)
     default_values.merge(custom_values).each { |k, v| s.gsub!(k.to_s, v.to_s)}
     s
@@ -28,8 +34,8 @@ class Connection < ApplicationRecord
     {
       '$PIN' => pin_id,
       '$IO_TYPE' => type.io_type.upcase,
-      '$NAME' => name,
-      '$ID' => id
+      '$NAME' => name.gsub(' ', '-'),
+      '$ID' => id,
     }
   end
 end
