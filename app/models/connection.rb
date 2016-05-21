@@ -1,5 +1,6 @@
 class Connection < ApplicationRecord
   belongs_to :pin
+  has_many :connection_data 
 
   before_save :set_default_values
   
@@ -15,14 +16,34 @@ class Connection < ApplicationRecord
     type.class_name
   end
 
-  def config_driver
-    setup_code = replace_vars(IO.read("lib/connection/#{setup_file}_setup.lua"))
-    Rails.application.config.mqtt_client.publish("/setup/#{pin.device.chip_id}", setup_code, retain=true)
+  def clazz
+    class_name.constantize
   end
 
-  def run
-   run_code = replace_vars(IO.read("lib/connection/#{run_file}_run.lua"))  
-   Rails.application.config.mqtt_client.publish("/run/#{pin.device.chip_id}", run_code, retain=true) unless run_code.empty?
+  def config_driver
+    begin 
+      setup_code = replace_vars(IO.read("lib/connection/#{setup_file}_setup.lua"))
+      Rails.application.config.mqtt_client.publish("/setup/#{pin.device.chip_id}", setup_code, retain=true)
+    rescue
+      logger.error('read file errors')
+    end
+  end
+  def run_code 
+    begin
+      run_code = replace_vars(IO.read("lib/connection/#{run_file}_run.lua"))  
+      Rails.application.config.mqtt_client.publish("/run/#{pin.device.chip_id}", run_code, retain=true)
+    rescue
+      logger.error('read file error')
+    end
+  end
+
+  def output
+    begin
+      run_code = replace_vars(IO.read("lib/connection/#{run_file}_run.lua"))  
+      Rails.application.config.mqtt_client.publish("/run/#{pin.device.chip_id}", run_code, retain=true)
+    rescue
+      logger.error('read file error')
+    end
   end
 
   def replace_vars(s)
@@ -31,6 +52,7 @@ class Connection < ApplicationRecord
   end
   
   def default_values
+
     {
       '$PIN' => pin_id,
       '$IO_TYPE' => type.io_type.upcase,

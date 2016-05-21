@@ -19,6 +19,15 @@ class Device < ApplicationRecord
   def conn
     first_pin.try(:connection)
   end
+
+  def last_value 
+    clazz.connection_data.last.to_value
+  end
+
+  def clazz
+    conn.clazz
+  end 
+
   def type
     conn.type.io_type
   end

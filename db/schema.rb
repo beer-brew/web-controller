@@ -17,7 +17,10 @@ ActiveRecord::Schema.define(version: 20160521075902) do
     t.float    "value",         limit: 24
     t.datetime "time"
     t.string   "name"
+    t.float    "lng",           limit: 24
+    t.float    "lat",           limit: 24
     t.integer  "connection_id"
+    t.integer  "data_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["connection_id"], name: "index_connection_data_on_connection_id", using: :btree
