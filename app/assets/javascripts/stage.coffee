@@ -7,7 +7,6 @@ $(document).on 'click touchstart', '.editable', (event)->
 
   $(this).blur ->
     App.stage.update($(this).data('id'), $(this).data('field'), $(this).text())
-  
 $(document).ready ->
   $('select').on 'change', ->
     optionSelected = $("option:selected", this);

@@ -7,4 +7,8 @@ class Stage < ApplicationRecord
     return super unless [:input, :output, :stop].include? name
     Device.find(self.send("#{name}_device"))
   end
+
+  def devices
+    Device.find([input_device, output_device, stop_device].compact.unique)
+  end
 end

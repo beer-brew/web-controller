@@ -1,7 +1,7 @@
 <div class="device-panel">
     <h1>Devices Panel</h1>
     <ul class="devices">
-        <%= render partial: 'device', collection: @devices %>
+        <%= render partial: 'device', collection: @unwired_devices %>
     </ul>
 </div>
 <div class="groves">
@@ -9,19 +9,19 @@
     <div class="analog">
         <h2>Analog</h2>
         <ul>
-            <%= render partial: 'connection', collection: @connections.where(catagory: :analog)%>
+            <%= render partial: 'connection', collection: @connection_types.where(catagory: :analog)%>
         </ul>
     </div>
     <div class="gpio">
         <h2>Gpio</h2>
         <ul>
-            <%= render partial: 'connection', collection: @connections.where(catagory: :gpio)%>
+            <%= render partial: 'connection', collection: @connection_types.where(catagory: :gpio)%>
         </ul>
     </div>
 </div>
 <div class="components-panel">   
     <h1> Components</h1> 
     <ul class="components devices">
-        <%= render partial: 'device', collection: @components %>
+        <%= render partial: 'device', collection: @wired_devices %>
     </ul>
 </div>

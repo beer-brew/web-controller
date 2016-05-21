@@ -1,16 +1,28 @@
 class Device < ApplicationRecord
   enum status: [:offline, :online]
   has_many :pins
-  scope :connected_device, -> (type) do 
-    all.select { |d| d.type == type }
+  scope :wired_with_type, -> (type) do 
+    wired_devices.select { |d| d.type == type }
   end
 
+  scope :unwired_devices, -> do
+    all - wired_devices
+  end
+  scope :wired_devices, -> do
+    all.select { |d| d.conn }
+  end
+
+  def first_pin
+    pins.first
+  end 
+
+  def conn
+    first_pin.try(:connection)
+  end
   def type
-    return nil unless conn_id = pins.first.connection_id
-    Connection.find(pins.first.connection_id).io_type
+    conn.type.io_type
   end
   def conn_name
-    return nil unless conn_id = pins.first.connection_id
-    Connection.find(pins.first.connection_id).name
+    conn.type.name
   end
 end

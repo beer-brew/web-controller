@@ -1,2 +1,1 @@
-relay_pin = $PIN 
-gpio.mode(relay_pin,  gpio.OUTPUT) 
+gpio.mode($PIN,  gpio.$IO_TYPE) 

@@ -8,6 +8,7 @@ class CreateStages < ActiveRecord::Migration[5.0]
       t.integer :stop_device
       t.string :stop_logic
       t.integer :sequence, default: 0
+      t.boolean :should_stop, default: false 
 
       t.timestamps
     end

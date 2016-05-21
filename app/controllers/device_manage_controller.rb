@@ -1,8 +1,7 @@
 class DeviceManageController < ApplicationController
   def index
-    all_device = Device.all.group_by{|d| d.pins.first.connection_id==nil}
-    @devices = all_device[true]
-    @components = all_device[false]
-    @connections = Connection.all
+    @unwired_devices = Device.unwired_devices
+    @wired_devices = Device.wired_devices
+    @connection_types = ConnectionType.all
   end
 end
