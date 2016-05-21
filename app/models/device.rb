@@ -21,7 +21,7 @@ class Device < ApplicationRecord
   end
 
   def last_value 
-    clazz.connection_data.last.to_value
+    conn.connection_data.last.to_value
   end
 
   def clazz

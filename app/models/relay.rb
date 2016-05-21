@@ -19,7 +19,7 @@ class Relay < Connection
     @value = ressult ? 'HIGH' : 'LOW' 
     if clazz.connection_data.last.to_value != @value
       display_value = result ? 1 : 0
-      ConnectionData.create(value: display_value, time: DateTime.now, connection_id: id, name: name.gsub(' ', '-')) 
+      ConnectionDatum.create(value: display_value, time: DateTime.now, connection_id: id, name: name.gsub(' ', '-')) 
       run_code
     end
   end

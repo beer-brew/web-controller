@@ -1,6 +1,6 @@
 class DigitalTempSensor < Connection 
   default_scope { where.class_name == 'DigitalTempSensor' } 
-
+  has_many :connection_data 
   def setup_file 
     'ds18b20'
   end
@@ -22,3 +22,4 @@ class DigitalTempSensor < Connection
    value.round(1) 
   end
 end
+
