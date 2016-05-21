@@ -1,17 +1,27 @@
 <tr class="<%='current' if @current_stage == stage.id%>" data-id=<%=stage.id%>>
   <td data-field="play" class="stage-play" data-id=<%=stage.id%>><i class="fa fa-play faa-horizontal <%='animated' if @current_stage == stage.id%>"></i></td>
-  <td data-field="name" class='name editable' contenteditable='true' data-id=<%=stage.id%> ><%= stage.name %></td>
-  <td data-field="input_device" class="device input_device" contenteditable data-id=<%=stage.id%>>
-      <%= select_tag('input_device', options_for_select(@input_devices.map { |d| [Connection.find(d.pins.first.connection_id).name, d.id]}), class: 'device-selector', id: 'input_device', include_blank: true) if @input_devices %>
+  <td data-field="name" class='name editable' contenteditable='true' data-id=<%=stage.id%>
+  >
+    <%= stage.name %>
   </td>
-  <td data-field="output_logic" class="output_logic editable" contenteditable data-id=<%=stage.id%>><%= stage.output_logic%></td>
+  <td data-field="input_device" class="device input_device" contenteditable data-id=<%=stage.id%>>
+    <%= select_tag('device', options_from_collection_for_select(@devices.connected_device('input'), 'id', 'conn_name', stage.input_device), class: 'device-selector', id: 'input_device', include_blank: true, prompt: 'Select a device') %>
+  </td>
+  <td data-field="output_logic" class="output_logic editable" contenteditable data-id=<%=stage.id%>>
+    <%= stage.output_logic%>
+  </td>
   <td data-field="output_device" class="device output_device" contenteditable data-id=<%=stage.id%>>
-      <%= select_tag('output_device', options_for_select(@output_devices.map { |d| [Connection.find(d.pins.first.connection_id).name, d.id]}, ["Temperature Sensor", 1]), class: 'device-selector', id: 'output_device', include_blank: true) if @output_devices %>
+      <%= select_tag('device', options_from_collection_for_select(@devices.connected_device('output'), 'id', 'conn_name', stage.output_device), class: 'device-selector', id: 'output_device', include_blank: true, prompt: 'Select a device') %>
   </td>
   <td data-field="stop_device" class="device stop_device" contenteditable data-id=<%=stage.id%>>
-      <%= select_tag('stop_device', options_for_select(@input_devices.map { |d| [Connection.find(d.pins.first.connection_id).name, d.id]}), class: 'device-selector', id: 'stop_device', include_blank: true) if @input_devices %>
+          <%= select_tag('device', options_from_collection_for_select(@devices.connected_device('input'), 'id', 'conn_name', stage.stop_device), class: 'device-selector', id: 'stop_device', include_blank: true, prompt: 'Select a device') %>
+
   </td>
-  <td data-field="stop_logic" class="stop_logic editable" contenteditable data-id=<%=stage.id%>><%= stage.stop_logic%></td>
-  <td data-field="sequence" class="sequence editable" contenteditable data-id=<%=stage.id%>><%= stage.sequence %></td>
+  <td data-field="stop_logic" class="stop_logic editable" contenteditable data-id=<%=stage.id%>>
+    <%= stage.stop_logic%>
+  </td>
+  <td data-field="sequence" class="sequence editable" contenteditable data-id=<%=stage.id%>>
+    <%= stage.sequence %>
+  </td>
   <td data-field="should_stop" class="should_stop" data-id=<%=stage.id%>><label><input type="checkbox" <%= "checked" if stage.should_stop%> /></label></td>
 </tr>

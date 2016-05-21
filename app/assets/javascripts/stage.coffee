@@ -7,13 +7,12 @@ $(document).on 'click touchstart', '.editable', (event)->
 
   $(this).blur ->
     App.stage.update($(this).data('id'), $(this).data('field'), $(this).text())
-bind_select_device = ->
+  
+$(document).ready ->
   $('select').on 'change', ->
     optionSelected = $("option:selected", this);
     App.stage.select_device($(this).parent().data('id'),$(this).attr('id'), this.value)
 
-$(document).ready ->
-  bind_select_device
 $(document).on 'click touchstart', '#add-stage', ->
   App.stage.add()
 
