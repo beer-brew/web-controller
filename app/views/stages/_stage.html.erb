@@ -1,20 +1,20 @@
-<tr class="<%='current' if @current_stage == stage.id%>" data-id=<%=stage.id%>>
-  <td data-field="play" class="stage-play" data-id=<%=stage.id%>><i class="fa fa-play faa-horizontal <%='animated' if @current_stage == stage.id%>"></i></td>
+<tr class="<%= 'current' if current == stage.id %>" data-id=<%= stage.id %> >
+  <td data-field="play" class="stage-play" data-id=<%=stage.id%>><i class="fa fa-play faa-horizontal <%='animated' if current == stage.id%>"></i></td>
   <td data-field="name" class='name editable' contenteditable='true' data-id=<%=stage.id%>
     >
     <%= stage.name %>
   </td>
   <td data-field="input_device" class="device input_device" contenteditable data-id=<%=stage.id%>>
-    <%= select_tag('device', options_from_collection_for_select(@devices.wired_with_type('input'), 'id', 'conn_name', stage.input_device), class: 'device-selector', id: 'input_device', include_blank: true, prompt: 'Select a device') %>
+    <%= select_tag('device', options_from_collection_for_select(input_devices, 'id', 'conn_name', stage.input_device), class: 'device-selector', id: 'input_device', include_blank: true, prompt: 'Select a device') %>
   </td>
   <td data-field="output_logic" class="output_logic editable" contenteditable data-id=<%=stage.id%>>
     <%= stage.output_logic%>
   </td>
   <td data-field="output_device" class="device output_device" contenteditable data-id=<%=stage.id%>>
-    <%= select_tag('device', options_from_collection_for_select(@devices.wired_with_type('output'), 'id', 'conn_name', stage.output_device), class: 'device-selector', id: 'output_device', include_blank: true, prompt: 'Select a device') %>
+    <%= select_tag('device', options_from_collection_for_select(output_devices, 'id', 'conn_name', stage.output_device), class: 'device-selector', id: 'output_device', include_blank: true, prompt: 'Select a device') %>
   </td>
   <td data-field="stop_device" class="device stop_device" contenteditable data-id=<%=stage.id%>>
-    <%= select_tag('device', options_from_collection_for_select(@devices.wired_with_type('input'), 'id', 'conn_name', stage.stop_device), class: 'device-selector', id: 'stop_device', include_blank: true, prompt: 'Select a device') %>
+    <%= select_tag('device', options_from_collection_for_select(input_devices, 'id', 'conn_name', stage.stop_device), class: 'device-selector', id: 'stop_device', include_blank: true, prompt: 'Select a device') %>
 
   </td>
   <td data-field="stop_logic" class="stop_logic editable" contenteditable data-id=<%=stage.id%>>

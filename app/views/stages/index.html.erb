@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tbody>
-    <%= render @stages %>
+    <%= render partial: 'stage', collection: @stages, locals: {input_devices: @input_devices, output_devices: @output_devices, current: @current_stage} %>
     </tbody>
   </table>
   <div id="add-stage">
