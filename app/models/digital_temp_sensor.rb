@@ -6,18 +6,19 @@ class DigitalTempSensor < Connection
     'ds18b20'
   end
 
-  def custom_values
-    {} 
-  end
-
   def setup
     config_driver
   end
   def run
     run_code 
   end
-  def self.to_value(value)
-   value.round(1) 
+
+  def eval(data)
+    eval("#{data.to_value} #{logic}")
+  end
+  
+  def to_value(value)
+   value.to_f.round(1) 
   end
 end
 

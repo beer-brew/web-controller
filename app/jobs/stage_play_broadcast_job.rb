@@ -4,7 +4,7 @@ class StagePlayBroadcastJob < ApplicationJob
   def perform
     stage = Ongoing.stage
     ActionCable.server.broadcast 'stage_play_channel', stage: stage ? stage : 0
-    run_device(stage) if stage 
+    run_device(stage) if stage    
   end
   private
 

@@ -14,9 +14,9 @@ class Relay < Connection
   end
 
   def exec(result)
-    @value = ressult ? 'HIGH' : 'LOW' 
-    if clazz.connection_data.last.to_value != @value
-      display_value = result ? 1 : 0
+    @value = to_value  
+    if to_value(connection_data.order(id: :desc).second) != @value
+      display_value = @value ? 1 : 0
       ConnectionDatum.create(value: display_value, time: DateTime.now, connection_id: id, name: name.gsub(' ', '-')) 
       run_code
     end
@@ -28,7 +28,7 @@ class Relay < Connection
     }
   end
 
-  def self.to_value(value)
-    value.round(1) 
+  def to_value(value)
+    !!value ? 'HIGH' : 'LOW'
   end
 end
