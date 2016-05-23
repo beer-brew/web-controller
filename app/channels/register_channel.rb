@@ -14,7 +14,7 @@ class RegisterChannel < ApplicationCable::Channel
       pin_id = device.pins.first.id
       conn_type.class_name.constantize.create(connection_type_id:  conn_type.id, pin_id: pin_id)
       Pin.find(pin_id).update(pin_type: conn_type.io_type)
-      SendConnectionDriverJob.perform_later(device)
+      ConnectionSetupJob.perform_later(device)
     end
   end
 end

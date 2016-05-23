@@ -12,6 +12,10 @@ App.stage = App.cable.subscriptions.create "StageChannel",
       $('tbody').append data['stage']
     else
       targetElement.replaceWith(data['stage'])
+    $('select').on 'change', ->
+      optionSelected = $("option:selected", this);
+      App.stage.select_device($(this).parent().data('id'),$(this).attr('id'), this.value)
+
   update: (id, field, value)->
     @perform 'update', id: id, field: field, value: value
 
