@@ -3,7 +3,7 @@ class CreateStages < ActiveRecord::Migration[5.0]
     create_table :stages do |t|
       t.string :name, default: 'stage name'
       t.integer :input_device
-      t.string :output_logic
+      t.string :input_logic
       t.integer :output_device
       t.integer :stop_device
       t.string :stop_logic
