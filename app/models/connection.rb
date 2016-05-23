@@ -1,7 +1,7 @@
 class Connection < ApplicationRecord
-  belongs_to :pin
   has_many :connection_data 
-
+  belongs_to :connection_type 
+  belongs_to :pin
   before_save :set_default_values
   
   def set_default_values

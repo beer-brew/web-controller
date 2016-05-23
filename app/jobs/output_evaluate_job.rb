@@ -8,8 +8,6 @@ class OutputEvaluateJob < ApplicationJob
   end
   private
   def exec_output(output, result)
-    ap output
-    ap result
     output.clazz.exec(result)
   end
   def output(input, output_logic)

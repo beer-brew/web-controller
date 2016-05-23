@@ -10,7 +10,10 @@ class RegisterChannel < ApplicationCable::Channel
   def connected(payload)
     if(payload['source_connection_type'] and payload['target_device_id'])
       device = Device.find(payload['target_device_id'])
-      device.first_pin.create_connection(connection_type_id: payload['source_connection_type'])
+      conn_type = ConnectionType.find(payload['source_connection_type'])
+      pin_id = device.pins.first.id
+      conn_type.class_name.constantize.create(connection_type_id:  conn_type.id, pin_id: pin_id)
+      Pin.find(pin_id).update(pin_type: conn_type.io_type)
       SendConnectionDriverJob.perform_later(device)
     end
   end

@@ -1,6 +1,7 @@
 class Device < ApplicationRecord
   enum status: [:offline, :online]
   has_many :pins
+  has_many :connections, through: :pins
   scope :wired_with_type, -> (type) do 
     wired_devices.select { |d| d.type == type }
   end
@@ -9,29 +10,10 @@ class Device < ApplicationRecord
     all - wired_devices
   end
   scope :wired_devices, -> do
-    all.select { |d| d.conn }
+    all.select { |d| d.connections.any? }
   end
-
-  def first_pin
-    pins.first
-  end 
-
-  def conn
-    first_pin.try(:connection)
-  end
-
-  def last_value 
-    conn.connection_data.last.to_value
-  end
-
-  def clazz
-    conn.clazz
-  end 
 
   def type
-    conn.type.io_type
-  end
-  def conn_name
-    conn.type.name
+    pins.first.pin_type
   end
 end

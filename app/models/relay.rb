@@ -1,6 +1,4 @@
 class Relay < Connection 
-  default_scope { where.class_name == 'Relay' } 
-
   def setup_file 
     'relay'
   end
