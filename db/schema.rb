@@ -40,11 +40,13 @@ ActiveRecord::Schema.define(version: 20160521075902) do
     t.float    "lat",                limit: 24
     t.float    "lng",                limit: 24
     t.string   "name"
+    t.string   "type"
     t.text     "message",            limit: 65535
     t.integer  "connection_type_id"
     t.integer  "pin_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.index ["connection_type_id"], name: "index_connections_on_connection_type_id", using: :btree
     t.index ["pin_id"], name: "index_connections_on_pin_id", using: :btree
   end
 
