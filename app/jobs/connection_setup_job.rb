@@ -1,4 +1,4 @@
-class SendConnectionDriverJob < ApplicationJob
+class ConnectionSetupJob < ApplicationJob
   queue_as :default
 
   def perform(device)
