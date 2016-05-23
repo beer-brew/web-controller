@@ -3,5 +3,8 @@ class Ongoing < ApplicationRecord
     StagePlayBroadcastJob.perform_later
   end
   
-  scope :stage, -> { Stage.find(first.stage)}
+  def self.stage
+    return nil if first.stage == 0
+    Stage.find(first.stage)
+  end
 end
