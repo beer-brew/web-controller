@@ -1,16 +1,9 @@
 class DigitalTempSensor < Connection 
-  def setup_file 
-    'ds18b20'
-  end
-  def run_file
-    'ds18b20'
-  end
-
   def setup
-    config_driver
+    publish_code('ds18b20_setup') 
   end
   def run
-    run_code 
+    publish_code('ds18b20_run') 
   end
 
   def eval(data)

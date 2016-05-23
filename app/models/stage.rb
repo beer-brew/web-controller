@@ -13,6 +13,6 @@ class Stage < ApplicationRecord
   end
 
   def next
-    class.order(:sequence).where('sequence > ?', sequence).first 
+    self.class.order(:sequence).where('sequence > ?', sequence).first 
   end
 end

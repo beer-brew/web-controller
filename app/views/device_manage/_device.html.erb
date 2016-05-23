@@ -1,7 +1,8 @@
 <li class="device" id="<%= device.id %>">
     <%= image_tag("wifi-#{device.status == 'online' ? 'on' : 'off'}") %>
     <div class="details">
-        <div class="id">ID: <%= device.chip_id %></div>
+        <div class="id">ID: <%= device.id %></div>
+        <div class="id">CHIP ID: <%= device.chip_id %></div>
         <div class="ip">IP: <%= device.ip %></div>
     </div>
 </li>
