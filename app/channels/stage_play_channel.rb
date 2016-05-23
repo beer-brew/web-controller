@@ -9,9 +9,8 @@ class StagePlayChannel < ApplicationCable::Channel
   end
 
   def reset
-    Ongoing.first_or_create.update(stage: 0, stage_start_time:nil)
+    Ongoing.first_or_create.update(stage: 0)
   end
-
 
   def play_stage(stage)
     Ongoing.first_or_create.update(stage: stage['stage'])
