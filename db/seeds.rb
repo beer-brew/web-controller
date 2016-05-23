@@ -5,3 +5,4 @@ ConnectionType.create(name: "Humidity Sensor", class_name: 'HumiditySensor', cat
 ConnectionType.create(name: "Light", class_name: 'Light', catagory: :gpio, io_type: :output, icon: 'light')
 ConnectionType.create(name: "Relay", class_name: 'Relay', catagory: :gpio, io_type: :output,  icon: 'relay')
 ConnectionType.create(name: "UV sensor", class_name: 'UVSensor', catagory: :gpio, io_type: :input, icon: 'uv_sensor')
+ConnectionType.create(name: "Timer", class_name: 'Timer', catagory: :gpio, io_type: :input, icon: 'timer')
