@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+mosquitto_pub -h m10.cloudmqtt.com  -p 12948 -u qegbzezg -P GaD8XPkgNZMH -t /register -m "{\"id\": ${1},\"mac\":\"1a:fe:34:d2:c8:64\",\"ip\":\"192.168.199.13\"}"
