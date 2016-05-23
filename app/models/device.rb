@@ -2,22 +2,21 @@ class Device < ApplicationRecord
   enum status: [:offline, :online]
   has_many :pins
   has_many :connections, through: :pins
-  scope :wired_with_type, -> (type) do 
-    wired_devices.select { |d| d.type == type }
+
+  scope :with_type, -> (type) do
+    select { |d| d.type == type } 
   end
 
-  scope :with_type, -> (devices, type) do
-    devices.select { |d| d.type == type } 
+  scope :actual, -> do
+    where('chip_id > 1000')
   end
-  scope :unwired_devices, -> do
-    all - wired_devices
-  end
-  scope :wired_devices, -> do
-    all.select { |d| d.connections.any? }
+
+  scope :wired, -> do
+    select { |d| d.connections.any? }
   end
 
   def conn_name
-    connections.first.name
+    connections.first.name + ' ' + id.to_s
   end
 
   def type

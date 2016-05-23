@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20160521075902) do
   create_table "stages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",          default: "stage name"
     t.integer  "input_device"
-    t.string   "put_logic"
+    t.string   "input_logic"
     t.integer  "output_device"
     t.integer  "stop_device"
     t.string   "stop_logic"

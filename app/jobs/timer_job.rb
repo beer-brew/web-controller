@@ -8,5 +8,6 @@ class TimerJob < ApplicationJob
       name: connection.name,
       connection_id: connection.id,
       data_id: rand(10**8)
+    )
   end
 end
