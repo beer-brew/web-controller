@@ -17,7 +17,7 @@ class Device < ApplicationRecord
   end
 
   def conn_name
-    connections.first.connection_type.name
+    connections.first.name
   end
 
   def type

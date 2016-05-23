@@ -12,7 +12,7 @@ class StageBroadcastJob < ApplicationJob
                                             stage: stage,
                                             input_devices: Device.wired_with_type('input'),
                                             output_devices: Device.wired_with_type('output'),
-                                            current: Ongoing.first.stage
+                                            current: Ongoing.stage
                                           }
                                           )
   end

@@ -4,6 +4,7 @@ class Ongoing < ApplicationRecord
   end
   
   def self.stage
+    return nil unless first
     return nil if first.stage == 0
     Stage.find(first.stage)
   end
