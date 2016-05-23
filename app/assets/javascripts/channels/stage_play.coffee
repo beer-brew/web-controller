@@ -7,7 +7,7 @@ App.stage_play = App.cable.subscriptions.create "StagePlayChannel",
 
   received: (data) ->
     $('audio').remove()
-    targetElement = $("tr[data-id=#{data['stage']}]")
+    targetElement = $("tr[data-id=#{data['stage']['id']}]")
     if $(targetElement).length==0
       $('.stage-play i').removeClass().addClass('fa fa-play faa-horizontal')
       $('td[data-field=timer]').text('N/A')
