@@ -1,4 +1,4 @@
-class StageStopAlarmBroadcastJob < ApplicationJob
+class AlarmBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform
@@ -8,5 +8,4 @@ class StageStopAlarmBroadcastJob < ApplicationJob
   def render_audio_tag
     ApplicationController.renderer.render(partial: 'stages/alarm')
   end
-
 end
