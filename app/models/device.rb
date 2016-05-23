@@ -6,11 +6,18 @@ class Device < ApplicationRecord
     wired_devices.select { |d| d.type == type }
   end
 
+  scope :with_type, -> (devices, type) do
+    devices.select { |d| d.type == type } 
+  end
   scope :unwired_devices, -> do
     all - wired_devices
   end
   scope :wired_devices, -> do
     all.select { |d| d.connections.any? }
+  end
+
+  def conn_name
+    connections.first.connection_type.name
   end
 
   def type
