@@ -11,4 +11,8 @@ class Stage < ApplicationRecord
   def devices
     Device.find([input_device, output_device, stop_device].compact.unique)
   end
+
+  def next
+    class.order(:sequence).where('sequence > ?', sequence).first 
+  end
 end
