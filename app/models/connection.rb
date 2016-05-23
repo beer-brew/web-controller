@@ -7,18 +7,15 @@ class Connection < ApplicationRecord
   def set_default_values
     self.name ||= type.name 
   end
+  
 
-  def type
-    ConnectionType.find(connection_type_id)
+  def device_type
+    [:input, :stop].select { |s| pin.device.id == stage.send("#{s}_device") }
   end
 
-  def class_name
-    type.class_name
-  end
-
-  def clazz
-    class_name.constantize
-  end
+  def logic
+    Ongoing.stage.send("#{device_type}_logic")
+  end 
 
   def config_driver
     begin 
@@ -51,8 +48,10 @@ class Connection < ApplicationRecord
     s
   end
   
+  def custom_values 
+    {}
+  end
   def default_values
-
     {
       '$PIN' => pin_id,
       '$IO_TYPE' => type.io_type.upcase,
