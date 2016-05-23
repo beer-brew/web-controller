@@ -1,27 +1,16 @@
 class Timer < Connection 
-  has_one :pin, as: :connection
-  has_many :connection_data 
-  default_scope { where.class_name == 'Timer' } 
-
-  def setup_file 
-    'ds18b20'
-  end
-  def run_file
-    'ds18b20'
-  end
-
-  def custom_values
-    {} 
-  end
-
   def setup
-    
   end
   def run
-    run_code 
+   TimerJob.set(wait: to_value(logic).minutes).perform_later
   end
-  def self.to_value(value)
-   value.round(1) 
+
+  def eval(data) 
+    true
+  end
+
+  def to_value(value)
+   value.to_i 
   end
 end
 
