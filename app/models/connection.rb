@@ -19,7 +19,7 @@ class Connection < ApplicationRecord
 
   def publish_code(file_name)
     begin
-      file_path= File.expand_path("../lib/connections/#{file_name}.lua", __FILE__)
+      file_path= Rails.root.join("lib/connections/#{file_name}.lua")
       code = replace_vars(IO.read(file_path))  
       Rails.application.config.mqtt_client.publish("/run/#{pin.device.chip_id}", code, retain=false)
     rescue  => e 
