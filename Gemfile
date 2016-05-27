@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails','~>5.0.0.rc1'
+gem 'rails', '~>5.0.0.rc1'
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', github: "rails/coffee-rails"
 gem 'jquery-ui-rails'
