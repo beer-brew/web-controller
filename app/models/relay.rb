@@ -1,15 +1,7 @@
 class Relay < Connection 
-  def setup_file 
-    'relay'
-  end
-  def run_file
-    'relay'
-  end
-
   def setup
-    config_driver
+   publish_code('relay_setup') 
   end
-
   def run
   end
 
